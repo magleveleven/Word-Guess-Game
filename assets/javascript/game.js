@@ -1,49 +1,52 @@
+// create array of words
 var words = ["fermentation", "barley", "yeast", "hops", "bottle", "keg", "stout", "pilsner", 
 "craft", "lager", "draught", "festival", "pong", "stein", "pint", "weizen", "goblets", "bock", 
 "microbrewery", "golden", "brewski", "copper", "carbonation", "brewpub"];
 
-var word = words[Math.floor(Math.random()*words.length)]
 
-var answerArray = [];
+var rightWord = [];
+var wrongWord = [];
+// have word selected randomly
+var randNum = Math.floor(Math.random()* words.length);
+var chosenWord = words[randNum];
+console.log(chosenWord);
+var letterQuantity = chosenWord.length
+console.log(letterQuantity);
 
-for(var i=0; i<word.length;i++){
-    answerArray[i] ="_"
-}
+// create underscores based on length of word
+var underScores = [];
 
-var remainingLetters = word.length;
-
-// ******************************
-
-// 
-
-addEventListener("onkeypress", myFunction);
-
-    function myFunction() {
-      alert ("Let's get started!");
+var displayUnderScores;
+    for(var i=0; i <chosenWord.length; i++){
+        underScores.push("_");
     }
+console.log(underScores);
 
-while (remainingLetters > 0){
-    alert(answerArray.join(" "));
 
-    var guess = prompt("Guess a letter, or click cancel to stop playing");
-
-    if(guess == null){
-        break;
-    } else if(guess.length !== 1){
-        alert("Please enter a signle letter.")
-    }  else {
-        for (var j=0; j < word.length; j++){
-            if(word[j] === guess){
-                answerArray[j] = guess;
-                remainingLetters--;
-            }
+// capture users guess
+document.addEventListener("keypress", function(event) {
+    var keyword = String.fromCharCode(event.keyCode);
+    console.log(keyword);
+// check if guess is right
+    if(chosenWord.indexOf(keyword) > -1) {
+        console.log(true);
+        rightWord.push(keyword);
+        console.log(rightWord);}
+        underScores[chosenWord.indexOf(keyword)] = keyword;
+        if(underScores.join("")==chosenWord) {
+        alert("Winner!");
         }
+        else {
+        wrongWord.push(keyword);
+        console.log(wrongWord);
     }
+});
 
-}
-// let the player know the word
-alert(answerArray.join(" "));
-alert("Good job! The answer was " + word);
 
+
+
+
+
+// if wrong push to wrong array
 
 

@@ -169,6 +169,57 @@ h4 {
 
 }
 
+.underscore {
+    font-size: 27px;
+    text-align: center;
+}
+
+.rightGuess {
+    text-align: center;
+    color: blue;
+
+}
+
+.wrongGuess {
+    text-align: center;
+    color: orangered;
+
+
+}
+
+.game-word {
+    border-style: solid;
+    border-width: 3px;
+    border-color: grey;
+    width: auto;
+    height: 120px;
+}
+
+.guessed-letters {
+    border-style: solid;
+    border-width: 3px;
+    border-color: grey;
+    width: auto;
+    height: 120px;
+}
+
+.hinter {
+    border-style: solid;
+    border-width: 3px;
+    border-color: grey;
+    width: auto;
+    height: 120px;
+}
+
+.scorebox {
+    border-style: solid;
+    border-width: 3px;
+    border-color: grey;
+    width: auto;
+    height: 120px;
+}
+
+
 .rightCol {
     border-style: solid;
     border-color: orangered;
@@ -183,6 +234,9 @@ h4 {
 
 }
 
+.secondrow {
+    position: relative;
+}
 .footCont {
     border-top-style: solid;
     border-color: red;
