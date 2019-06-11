@@ -14,9 +14,74 @@
 
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
     <title>Word Guess Game</title>
 
   </head>
+
+<script>
+// create array of words
+var words = ["fermentation", "barley", "yeast", "hops", "bottle", "keg", "stout", "pilsner", 
+"craft", "lager", "draught", "festival", "pong", "stein", "pint", "weizen", "goblets", "bock", 
+"microbrewery", "golden", "brewski", "copper", "carbonation", "brewpub"];
+
+// have word selected randomly
+var randNum = Math.floor(Math.random()* words.length);
+console.log(randNum);
+var chosenWord = words[randNum];
+console.log(chosenWord);
+var rightWord = [];
+var wrongWord = [];
+var underScore = [];
+
+//DOM manipulation 
+var showUnderscore = document.getElementsByClassName("underscorelines");
+var docRightGuess = document.getElementsByClassName("rightGuess");
+var docWrongGuess = document.getElementsByClassName("wrongGuess");
+
+
+// create underscores based on length of word
+console.log(chosenWord);
+function genUnderScore() {
+    for(i=0; i<chosenWord.length; i++) {
+        underScore.push("_");
+    }
+    return underScore;
+};
+    console.log(genUnderScore());
+
+
+document.addEventListener('keypress', function(event) {
+    var keyword = String.fromCharCode(event.keyCode);
+    console.log(keyword);
+//if users guess is right 
+    if(chosenWord.indexOf(keyword) > -1) {
+        console.log(true);
+//add to rightWords array
+    rightWord.push(keyword);
+    console.log(rightWord);
+    underScore[chosenWord.indexOf(keyword)] = keyword;
+    showUnderscore[0].innerHTML = underScore.join(' ');
+    docRightGuess[0].innerHTML = rightWord;
+    console.log(underScore);
+    if(underScore.join(' ') == chosenWord) {
+        alert("winner");
+    }
+    else {
+    wrongWord.push(keyword);}
+    console.log(wrongWord);
+
+    };
+
+    //;
+    showUnderscore[0].innerHTML = genUnderScore().join(' ');
+
+
+});
+
+</script>
 
   <body>
 
@@ -36,11 +101,11 @@
                         <h4 class="sub-header">Guess this word</h4>
                             <div class="game-word">
                                 <br>
-                                <div class="underscore">_ _ _ _</div>
+                                <div class="underscorelines">right letters here</div>
                                 <br>
-                                <div class="rightGuess">Right!</div>
+                                <div class="correct">-</div>
                                 <br>
-                                <div class="wrongGuess">Oops!</div>
+                                <div class="incorrect">-</div>
                             </div>
                     </div>
                 </div>
@@ -49,6 +114,14 @@
                     <div class="rightCol">
                         <h4 class="sub-header">Letters guessed</h4>
                             <div class="guessed-letters">
+                                <div class="rightGuessLabel">Right letters!
+                                    </div>
+                                    <div class="rightGuess">
+                                        </div>
+                                <div class="wrongGuessLabel">Wrong letters.
+                                    </div>
+                                    <div class="wrongGuess">
+                                        </div>
                             </div>
                     </div>
                 </div>
@@ -68,9 +141,9 @@
                     <div class="rightCol">
                         <h4 class="sub-header">Score</h4>
                             <div class="scorebox">
-                        <h5 class="sub-header">Wins</h45>
+                        <h5 id="wins">Wins = </h5>
                             <div class="winbox">
-                        <h5 class="sub-header">Losses</h45>
+                        <h5 id="losses">Losses = </h5>
                             <div class="lossbox">
                             </div>
                             </div>

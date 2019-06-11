@@ -1,46 +1,50 @@
-// create array of words
-var words = ["fermentation", "barley", "yeast", "hops", "bottle", "keg", "stout", "pilsner", 
-"craft", "lager", "draught", "festival", "pong", "stein", "pint", "weizen", "goblets", "bock", 
-"microbrewery", "golden", "brewski", "copper", "carbonation", "brewpub"];
 
 
-var rightWord = [];
-var wrongWord = [];
-// have word selected randomly
-var randNum = Math.floor(Math.random()* words.length);
-var chosenWord = words[randNum];
-console.log(chosenWord);
-var letterQuantity = chosenWord.length
-console.log(letterQuantity);
-
-// create underscores based on length of word
-var underScores = [];
-
-var displayUnderScores;
-    for(var i=0; i <chosenWord.length; i++){
-        underScores.push("_");
-    }
-console.log(underScores);
-
+//$(docUnderScore).prepend("_" + underScores);
+//})
+//function generateUnderscore() {
+//for(i=0; i< chosenWord.length; i++) {
+    //underScores = underScores + " _ "
+//}
+        //underScores.push("_");
+        //return underScores;
+//}
 
 // capture users guess
-document.addEventListener("keypress", function(event) {
-    var keyword = String.fromCharCode(event.keyCode);
-    console.log(keyword);
-// check if guess is right
-    if(chosenWord.indexOf(keyword) > -1) {
-        console.log(true);
-        rightWord.push(keyword);
-        console.log(rightWord);}
-        underScores[chosenWord.indexOf(keyword)] = keyword;
-        if(underScores.join("")==chosenWord) {
-        alert("Winner!");
-        }
-        else {
-        wrongWord.push(keyword);
-        console.log(wrongWord);
-    }
-});
+
+//<div id="drink-options"></div>
+
+//<script type="text/javascript">
+
+//</script>Array holds all of the drinks available
+  //var drinkList = [
+    //"Coffee: $5",
+    //"Espresso: $7",
+    //"Cappuccino: $6",
+    //"Latte: $4",
+    //"Tea: $3",
+    //"Ice Coffee: $6",
+    //"Ice Espresso: $8",
+    //"Ice Latte: $6",
+    //"Ice Tea: $4"
+ // ];
+
+  // This line of jQuery selects the div with the matching id (#drink-options)
+  //var drinkDiv = $("#drink-options");
+
+  // For Loop then loops through our total drink list...
+  //for (var i = 0; i < drinkList.length; i++) {
+
+    // It then creates a new div for each drink. Note we create divs and add the content in the same line.
+    //var newDrinkDiv = $("<div>" + drinkList[i] + "</div>");
+
+    // It then adds this new div to the drinkList div.
+    //drinkDiv.append(newDrinkDiv);
+  //}
+
+
+    
+
 
 
 
@@ -48,5 +52,4 @@ document.addEventListener("keypress", function(event) {
 
 
 // if wrong push to wrong array
-
 
