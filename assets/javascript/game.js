@@ -53,3 +53,17 @@
 
 // if wrong push to wrong array
 
+
+
+
+
+//var totalSum = functio (num) {
+    //var sum = 0;
+    //for (var i = 0; i <= num; i++) {
+        //sum += i;
+    //}
+    //return sum;
+//}
+
+//var result = totalSUm(2);
+//console.log("the result is: " + result);
