@@ -217,15 +217,28 @@ h4 {
     text-align: center;
     color: blue;
     font-size: 18px;
+    margin-top: 10px;
 
+}
+
+.rightGuess {
+    text-align: center;
+    color: blue;
+    font-size: 15px;
+    padding: 5px;
 }
 
 .wrongGuessLabel {
     text-align: center;
     color: orangered;
     font-size: 18px;
-    margin-top: 35px;
+    margin-top: 11px;
+}
 
+.wrongGuess {
+    text-align: center;
+    color: orangered;
+    font-size: 15px;
 }
 
 .hinter {
@@ -241,7 +254,7 @@ h4 {
     color: green;
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    margin-top: 15px;
+    margin-top: 35px;
 }
 .scorebox {
     border-style: solid;

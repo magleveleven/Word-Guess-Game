@@ -22,6 +22,10 @@
   </head>
 
 <script>
+
+$(document).ready
+
+
 // create array of words
 var words = ["barley", "yeast", "hops", "keg", "pilsner", 
 "craft", "lager", "draught", "festival", "stein", "pint", "goblets", "bock", 
@@ -36,6 +40,7 @@ console.log(chosenWord);
 var rightWord = [];
 var wrongWord = [];
 var underScore = [];
+var wordEnd = [];
 
 
 //DOM manipulation 
@@ -68,28 +73,17 @@ document.addEventListener('keypress', function(event) {
         underScore[chosenWord.indexOf(keyword)] = keyword;
         showUnderScore[0].innerHTML = underScore.join(' ');
         docRightGuess[0].innerHTML = rightWord;
-            console.log(underScore);
+            console.log(docRightGuess);
+        }
+        else {
+            wrongWord.push(keyword);
+            docWrongGuess[0].innerHTML = wrongWord;
         }
 
-    var wordEnd
+
     
-    if(keyword == chosenWord) {
-        alert("winner");
-        console.log(alert);
-    }
 
     });
-        //if(underScore.join(' ') == chosenWord) {
-            //alert("winner");
-            //}
-        //else {
-            //wrongWord.push(keyword);
-            //console.log(keyword);
-            //docWrongGuess[0].innerHTML = wrongWord;
-            //console.log(docWrongGuess);
-
-            //docWrongGuess[0].innerHTML = wrongGuess;
-
 
 
 </script>
@@ -112,11 +106,8 @@ document.addEventListener('keypress', function(event) {
                         <h4 class="sub-header">Guess this word</h4>
                             <div class="game-word">
                                 <br>
-                                <div class="underscorelines">right letters here</div>
                                 <br>
-                                <div class="correct">-</div>
-                                <br>
-                                <div class="incorrect">-</div>
+                                <div class="underscorelines">play here</div>
                             </div>
                     </div>
                 </div>
