@@ -141,9 +141,6 @@ h4 {
 
 .container-fluid {
     width: 100%;
-    border-style: solid;
-    border-color: purple;
-    border-width: 5px;
     position: absolute;
     padding: 0%;
     margin-top: 5%;
@@ -159,8 +156,7 @@ h4 {
 
 .leftCol {
     border-style: solid;
-    border-color: orangered;
-    border-width: 8px;
+    border-width: 1px;
     border-radius: 15px;
     background-color: #e2f3c7;
     opacity: 0.85;
@@ -184,14 +180,12 @@ h4 {
 
 .incorrect {
     text-align: center;
-    color: orangered;
 
 
 }
 
 .boxofguessedletters {
     text-align: center;
-    color: orangered;
     font-size: 18px;
 
 
@@ -267,16 +261,24 @@ h4 {
 #wins {
     font-size: 19px;
     color: green;
-    text-align: left;
+    text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin-top: 25px;
     margin-left: 15px;
 }
 
+.winbox {
+    font-size: 19px;
+    color: green;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-top: 25px;
+    margin-left: 15px;
+}
 #losses {
     font-size: 19px;
     color: red;
-    text-align: left;
+    text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin-top: 25px;
     margin-left: 15px;
@@ -286,8 +288,7 @@ h4 {
 
 .rightCol {
     border-style: solid;
-    border-color: orangered;
-    border-width: 8px;
+    border-width: 1px;
     border-radius: 15px;
     background-color: #e2f3c7;
     opacity: 0.85;

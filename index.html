@@ -28,8 +28,7 @@ $(document).ready
 
 // create array of words
 var words = ["barley", "yeast", "hops", "keg", "pilsner", 
-"craft", "lager", "draught", "festival", "stein", "pint", "goblets", "bock", 
-"microbrew", "golden", "brewski", "brew"];
+"craft", "lager", "draught", "festival", "stein", "pint", "goblets", "bock", "golden", "brewski", "brew"];
 
 // have word selected randomly
 var randNum = Math.floor(Math.random()* words.length);
@@ -43,10 +42,14 @@ var underScore = [];
 var wordEnd = [];
 
 
+
 //DOM manipulation 
 var showUnderScore = document.getElementsByClassName("underscorelines");
 var docRightGuess = document.getElementsByClassName("rightGuess");
 var docWrongGuess = document.getElementsByClassName("wrongGuess");
+var winColumn = document.getElementsByClassName("winbox");
+var lossColumn = document.getElementsByClassName("lossbox");
+var score = 0;
 
 
 // create underscores based on length of word
@@ -70,18 +73,29 @@ document.addEventListener('keypress', function(event) {
             //add to rightWords array
         rightWord.push(keyword);
             console.log(rightWord);
+            //replace underscore with right letter
         underScore[chosenWord.indexOf(keyword)] = keyword;
-        showUnderScore[0].innerHTML = underScore.join(' ');
-        docRightGuess[0].innerHTML = rightWord;
+            console.log(underScore);
+            showUnderScore[0].innerHTML = underScore.join(' ');
+            docRightGuess[0].innerHTML = rightWord;
             console.log(docRightGuess);
+
+
+            if(underScore.join('') == chosenWord){
+                alert("WAY TO GO, KEEP GOING!");
+                score = 1;
+                winColumn[0].innerHTML = (score);
+
+            }
+        
         }
         else {
             wrongWord.push(keyword);
             docWrongGuess[0].innerHTML = wrongWord;
         }
+            
 
 
-    
 
     });
 
@@ -143,9 +157,8 @@ document.addEventListener('keypress', function(event) {
                     <div class="rightCol">
                         <h4 class="sub-header">Score</h4>
                             <div class="scorebox">
-                        <h5 id="wins">Wins = </h5>
+                        <h5 id="wins">Wins</h5>
                             <div class="winbox">
-                        <h5 id="losses">Losses = </h5>
                             <div class="lossbox">
                             </div>
                             </div>
