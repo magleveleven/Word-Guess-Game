@@ -23,7 +23,6 @@
 
 <script>
 
-$(document).ready
 
 
 // create array of words
@@ -33,13 +32,14 @@ var words = ["barley", "yeast", "hops", "keg", "pilsner",
 // have word selected randomly
 var randNum = Math.floor(Math.random()* words.length);
 console.log(randNum);
+
 var chosenWord = words[randNum];
-var  currentWordIndex;
 console.log(chosenWord);
 var rightWord = [];
 var wrongWord = [];
 var underScore = [];
-var wordEnd = [];
+var newScore = 0;
+
 
 
 
@@ -49,7 +49,6 @@ var docRightGuess = document.getElementsByClassName("rightGuess");
 var docWrongGuess = document.getElementsByClassName("wrongGuess");
 var winColumn = document.getElementsByClassName("winbox");
 var lossColumn = document.getElementsByClassName("lossbox");
-var score = 0;
 
 
 // create underscores based on length of word
@@ -62,42 +61,51 @@ function genUnderScore()  {
 }
     console.log(genUnderScore());
 
-
+function reset() {
+    randNum = Math.floor(Math.random()* words.length);
+    chosenWord = words[randNum];
+    console.log(chosenWord);
+    rightWord = [];
+    wrongWord = [];
+    underScore = [];
+    genUnderScore();
+    console.log(underScore);
+    showUnderScore[0].innerHTML = underScore.join(' ');
+    docRightGuess[0].innerHTML = rightWord;
+    docWrongGuess[0].innerHTML = wrongWord;
+}
 
 document.addEventListener('keypress', function(event) {
     var keyword = String.fromCharCode(event.keyCode);
             console.log(keyword);
             //if users guess is right 
         if(chosenWord.indexOf(keyword) > -1) {
-            console.log(true);
-            //add to rightWords array
-        rightWord.push(keyword);
-            console.log(rightWord);
-            //replace underscore with right letter
-        underScore[chosenWord.indexOf(keyword)] = keyword;
-            console.log(underScore);
-            showUnderScore[0].innerHTML = underScore.join(' ');
-            docRightGuess[0].innerHTML = rightWord;
-            console.log(docRightGuess);
-
+                console.log(true);
+                //add to rightWords array
+            rightWord.push(keyword);
+                console.log(rightWord);
+                //replace underscore with right letter
+            underScore[chosenWord.indexOf(keyword)] = keyword;
+                console.log(underScore);
+                showUnderScore[0].innerHTML = underScore.join(' ');
+                docRightGuess[0].innerHTML = rightWord;
+                console.log(docRightGuess);
+                keyword.toLowerCase();
 
             if(underScore.join('') == chosenWord){
-                alert("WAY TO GO, KEEP GOING!");
-                score = 1;
-                winColumn[0].innerHTML = (score);
-
+                alert("NICE! + 1 point, try another word!");
+                newScore += 1;
+                winColumn[0].innerHTML = newScore;
+                reset();
+                }
             }
-        
-        }
-        else {
+            else {
             wrongWord.push(keyword);
             docWrongGuess[0].innerHTML = wrongWord;
-        }
-            
-
-
+            };
 
     });
+
 
 
 </script>
@@ -109,7 +117,7 @@ document.addEventListener('keypress', function(event) {
         <div class="introHead">
             <h1>Wonderful World of Beer</h1>
                 <h2>Let's play a word guess game!</h2>
-                    <h3 span class="blinking">Press any key to start.</h3>
+                    <h3 span class="blinking">Press any letter to start.</h3>
         </div>
 
 
@@ -122,6 +130,8 @@ document.addEventListener('keypress', function(event) {
                                 <br>
                                 <br>
                                 <div class="underscorelines">play here</div>
+                                <br>
+                                <br>
                             </div>
                     </div>
                 </div>
